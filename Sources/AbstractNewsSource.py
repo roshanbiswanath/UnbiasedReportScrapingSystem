@@ -19,6 +19,7 @@ class AbstractNewsSource(ABC):
     def isArticlePresent(self, article: Article) -> bool:
         article = self.db["scrapedArticles"].find_one({"url": article.url})
         if article is not None:
+            print(article["title"])
             print("Article already present in DB")
             return True
         else:

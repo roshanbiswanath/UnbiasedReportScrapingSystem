@@ -1,4 +1,5 @@
 from Sources.IndiaToday import IndiaToday
+from Sources.TheHindu import TheHindu
 
 class NewsScrapingSystem:
     """Class for news scraping system"""
@@ -20,4 +21,5 @@ class NewsScrapingSystem:
 if __name__ == "__main__":
     scraping_system = NewsScrapingSystem()
     scraping_system.add_news_source(IndiaToday())
+    scraping_system.add_news_source(TheHindu())
     scraping_system.scrape_news()
