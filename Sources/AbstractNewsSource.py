@@ -19,8 +19,7 @@ class AbstractNewsSource(ABC):
     def isArticlePresent(self, article: Article) -> bool:
         article = self.db["scrapedArticles"].find_one({"url": article.url})
         if article is not None:
-            print(article["title"])
-            print("Article already present in DB")
+            print("Article already present in DB: ", article["title"])
             return True
         else:
             print("Article not present in DB")
@@ -29,8 +28,8 @@ class AbstractNewsSource(ABC):
     def storeScrapedArticle(self, article: Article):
         if(not self.isArticlePresent(article)):
             self.db["scrapedArticles"].insert_one(article.model_dump())
-            print("Inserted article into DB")
-    
+            print("Inserted article into DB: ", article.title)
+
     @abstractmethod
     def scrapeArticle(self, feedArticle):
         pass

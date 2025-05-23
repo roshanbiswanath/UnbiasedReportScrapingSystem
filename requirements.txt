@@ -1,0 +1,7 @@
+pymongo
+pydantic
+dotenv
+feedparser
+beautifulsoup4
+requests
+schedule
